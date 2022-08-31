@@ -1,0 +1,19 @@
+1. React
+React is a Javascript library used to create web applications with a very fast and pretty graphical interface using JSX
+
+2. React Component
+A React component is a piece of code that can be reused in different applications and uses a render function to tell the browser exactly what to display
+
+3. Single-page application
+a single page application is an application that has all of its functionality on one page so does not require any navigation to other pages in the app.
+
+4. Declarative programming (versus imperative programming)
+Declarative programming is best defined as describing what you want in the end, where
+ imperative programming is going through all the logic to get to a final desired result
+
+5. JSX
+is a syntax extension of javascript that allows developers to better see and describe how the UI should look when it is rendered
+
+6. Asynchronous (versus synchronous)
+synchronus programming describes programs that are run line by line in sequential order. Asynchronous programming
+allows developers to have run code later or in parallel with the rest of the code so as not to disturb the rest of the program.
