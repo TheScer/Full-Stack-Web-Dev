@@ -1,22 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Country from "./components/Country";
+
+const countries = [
+  {
+    name: "Djibouti",
+    capital: "Djibouti City",
+  },
+  {
+    name: "Thailand",
+    capital: "Bangkok",
+  },
+];
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <p>Oscar Hero Exercise 5</p>
+        <br />
+        <div>
+          <Country name={countries[0].name} capital={countries[0].capital} />
+          <Country name={countries[1].name} capital={countries[1].capital} />
+        </div>
       </header>
     </div>
   );
