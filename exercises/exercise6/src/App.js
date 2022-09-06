@@ -2,6 +2,7 @@ import MenuItem from "./components/MenuItem";
 import "./Menu.css";
 //import AddItem from "./components/AddItem";
 import { useState } from "react";
+import AddItem from "./components/AddItem";
 
 const menu = [
   {
@@ -24,26 +25,26 @@ const menu = [
 const App = () => {
   const [menuItems, setMenuItems] = useState(menu);
 
-  const removeHandler = () => {
-    console.log('clicked on app.js')
-  }
+  // const removeHandler = () => {
+  //   console.log('clicked on app.js')
+  // }
 
-  /*const removeHandler = (id) => {
+  const removeHandler = (id) => {
     console.log("Clicked " + id);
     setMenuItems((prevMenuItems) =>
       prevMenuItems.filter((item) => {
         return item.id !== id;
       })
     );
-  };*/
+  };
 
   return (
     <div className="menu">
       <h1>Scer's Bistro</h1>
       <ul>
-        {menu.map((item) => (
+        {menuItems.map((item) => (
           <MenuItem
-          removeHandler={removeHandler}
+            removeHandler={removeHandler}
             key={item.id}
             id={item.id}
             name={item.name}
@@ -51,6 +52,9 @@ const App = () => {
           />
         ))}
       </ul>
+      <div>
+        <AddItem setMenuItems={setMenuItems} />
+      </div>
     </div>
   );
 };
