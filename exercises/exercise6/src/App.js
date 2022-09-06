@@ -1,8 +1,8 @@
 import MenuItem from "./components/MenuItem";
 import "./Menu.css";
-//import AddItem from "./components/AddItem";
 import { useState } from "react";
 import AddItem from "./components/AddItem";
+import MenuList from "./components/MenuList";
 
 const menu = [
   {
@@ -25,10 +25,6 @@ const menu = [
 const App = () => {
   const [menuItems, setMenuItems] = useState(menu);
 
-  // const removeHandler = () => {
-  //   console.log('clicked on app.js')
-  // }
-
   const removeHandler = (id) => {
     console.log("Clicked " + id);
     setMenuItems((prevMenuItems) =>
@@ -41,17 +37,13 @@ const App = () => {
   return (
     <div className="menu">
       <h1>Scer's Bistro</h1>
-      <ul>
-        {menuItems.map((item) => (
-          <MenuItem
-            removeHandler={removeHandler}
-            key={item.id}
-            id={item.id}
-            name={item.name}
-            price={item.price}
-          />
-        ))}
-      </ul>
+      <MenuList
+        menu={menu}
+        removeHandler={removeHandler}
+        menuItems={menuItems}
+        setMenuItems={setMenuItems}
+      />
+
       <div>
         <AddItem setMenuItems={setMenuItems} />
       </div>
