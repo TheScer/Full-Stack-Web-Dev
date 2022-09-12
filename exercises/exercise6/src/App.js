@@ -41,7 +41,6 @@ const App = () => {
         menu={menu}
         removeHandler={removeHandler}
         menuItems={menuItems}
-        setMenuItems={setMenuItems}
       />
 
       <div>
