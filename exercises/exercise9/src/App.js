@@ -5,21 +5,7 @@ import { React, useState } from "react";
 const App = () => {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
-
-  // const movies = [
-  //   {
-  //     id: 1,
-  //     title: "Movie 1",
-  //     openingText: "A long time ago...",
-  //     releaseDate: "1977-05-25",
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "Movie 2",
-  //     openingText: "An even longer time ago...",
-  //     releaseDate: "1999-05-19",
-  //   },
-  // ];
+  const [isLoading, setIsLoading] = useState(null);
 
   const fetchMoviesHandler = async () => {
     setError(null);
@@ -31,6 +17,7 @@ const App = () => {
         throw new Error("Something went wrong!");
       }
 
+      setIsLoading("is loading ...");
       const data = await response.json();
       setMovies(data.results);
 
@@ -46,25 +33,27 @@ const App = () => {
     } catch (error) {
       setError(error.message);
     }
+
+    setIsLoading(null);
   };
 
   let content;
 
   if (error) {
     content = <p>{error}</p>;
+  } else if (isLoading) {
+    content = <p>loading ...</p>;
   } else {
     content = <MoviesList movies={movies} />;
   }
 
+  //MoviesList movies={movies}
   return (
     <>
       <section>
         <button onClick={fetchMoviesHandler}>Fetch Movies</button>
       </section>
-      <section>
-        {error && <p></p>}
-        <MoviesList movies={movies} />
-      </section>
+      <section>{content}</section>
     </>
   );
 };

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 const App = () => {
   const [todos, setTodos] = useState([]);
+  const[isLoading, setIsLoading] = useState(false)
 
   // const todos = [
   //   {
@@ -22,6 +23,7 @@ const App = () => {
   // };
 
   const addTodoHandler = async (todo) => {
+    
     console.log(todo);
     const response = await fetch(
       "https://todo-list-bc991-default-rtdb.europe-west1.firebasedatabase.app/todos.json",
