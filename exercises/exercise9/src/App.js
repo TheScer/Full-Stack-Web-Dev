@@ -1,11 +1,15 @@
 import MoviesList from "./components/MoviesList";
 import "./App.css";
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 
 const App = () => {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
+
+  useEffect(() => {
+    fetchMoviesHandler();
+  }, []);
 
   const fetchMoviesHandler = async () => {
     setError(null);
