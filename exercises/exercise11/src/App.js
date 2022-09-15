@@ -1,29 +1,12 @@
 import AddTodo from "./components/AddTodo";
 import { useState, useEffect } from "react";
+import TodoList from "./components/TodoList";
 
 const App = () => {
   const [todos, setTodos] = useState([]);
-  const[isLoading, setIsLoading] = useState(false)
-
-  // const todos = [
-  //   {
-  //     id: 1,
-  //     text: "Learn React",
-  //     date: "2022-08-17",
-  //   },
-  //   {
-  //     id: 2,
-  //     text: "Choose project work topic",
-  //     date: "2022-10-15",
-  //   },
-  // ];
-
-  // const addTodoHandler = (todo) => {
-  //   console.log(todo);
-  // };
+  const [isLoading, setIsLoading] = useState(false);
 
   const addTodoHandler = async (todo) => {
-    
     console.log(todo);
     const response = await fetch(
       "https://todo-list-bc991-default-rtdb.europe-west1.firebasedatabase.app/todos.json",
@@ -62,20 +45,23 @@ const App = () => {
     fetchTodos();
   }, [fetchTodos]);
 
-  let content = todos.map((todo) => (
-    <div key={todo.id}>
-      <h2>{todo.text}</h2>
-      <h3>{todo.date}</h3>
-      <br></br>
-    </div>
-  ));
+  let noTasks = null;
+
+  if (todos.length === 0) {
+    noTasks = <p>no todos yet!</p>;
+  } else {
+    noTasks = null;
+  }
 
   return (
     <>
       <section>
         <AddTodo onAddTodo={addTodoHandler} />
       </section>
-      <section>{content}</section>
+      <section>
+        <TodoList todos={todos}></TodoList>
+      </section>
+      <section>{noTasks}</section>
     </>
   );
 };
