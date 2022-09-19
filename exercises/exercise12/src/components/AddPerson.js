@@ -8,14 +8,12 @@ const AddPerson = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
 
-    //CHANGE FROM TODO
     const person = {
       fname: FirstNameRef.current.value,
       lname: LastNameRef.current.value,
       date: BirthDateRef.current.value,
     };
 
-    //CHANGE THIS
     props.onAddPerson(person);
 
     FirstNameRef.current.value = "";
@@ -32,7 +30,7 @@ const AddPerson = (props) => {
 
       <div>
         <label htmlFor="text">Last Name: </label>
-        <textarea rows="1" id="lname" ref={FirstNameRef}></textarea>
+        <textarea rows="1" id="lname" ref={LastNameRef}></textarea>
       </div>
 
       <div>

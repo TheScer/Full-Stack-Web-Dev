@@ -28,21 +28,12 @@ function App() {
   //put the database data into the person list
   //loop through the person list to display the data
 
-  //also need an onSubmit function to pass down
-
-  const onSubmit = () => {
-    //do stuff in here to update person?
-  };
-
   return (
     <div className="App">
       <header className="App-header">
         {" "}
         <AddPerson onAddPerson={addPersonHandler} />
       </header>
-
-      <section></section>
-      <section></section>
     </div>
   );
 }
