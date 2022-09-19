@@ -9,14 +9,14 @@ const AddPerson = (props) => {
     event.preventDefault();
 
     //CHANGE FROM TODO
-    const todo = {
-      text: FirstNameRef.current.value,
-      text: LastNameRef.current.value,
+    const person = {
+      fname: FirstNameRef.current.value,
+      lname: LastNameRef.current.value,
       date: BirthDateRef.current.value,
     };
 
     //CHANGE THIS
-    props.onAddTodo(todo);
+    props.onAddPerson(person);
 
     FirstNameRef.current.value = "";
     LastNameRef.current.value = "";
@@ -26,17 +26,17 @@ const AddPerson = (props) => {
   return (
     <form onSubmit={submitHandler}>
       <div>
-        <label htmlFor="text">First Name</label>
-        <textarea rows="5" id="text" ref={FirstNameRef}></textarea>
+        <label htmlFor="text">First Name: </label>
+        <textarea rows="1" id="fname" ref={FirstNameRef}></textarea>
       </div>
 
       <div>
-        <label htmlFor="text">Last Name</label>
-        <textarea rows="5" id="text" ref={FirstNameRef}></textarea>
+        <label htmlFor="text">Last Name: </label>
+        <textarea rows="1" id="lname" ref={FirstNameRef}></textarea>
       </div>
 
       <div>
-        <label htmlFor="date">Date of Birth</label>
+        <label htmlFor="date">Date of Birth: </label>
         <input type="date" id="date" ref={BirthDateRef} />
       </div>
 
