@@ -11,7 +11,7 @@ function App() {
   const addPersonHandler = async (person) => {
     console.log(person);
     const response = await fetch(
-      "https://famous-person-display-default-rtdb.europe-west1.firebasedatabase.app/",
+      "https://famouspersondisplay2-default-rtdb.europe-west1.firebasedatabase.app/persons.json",
       {
         method: "Post",
         body: JSON.stringify(person),

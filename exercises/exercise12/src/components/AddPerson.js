@@ -7,7 +7,6 @@ const AddPerson = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-
     const person = {
       fname: FirstNameRef.current.value,
       lname: LastNameRef.current.value,
@@ -20,6 +19,10 @@ const AddPerson = (props) => {
     LastNameRef.current.value = "";
     BirthDateRef.current.value = "";
   };
+
+  // useEffect(() => {
+  //   props.onAddPerson(person);
+  // }, [person]);
 
   return (
     <form onSubmit={submitHandler}>
